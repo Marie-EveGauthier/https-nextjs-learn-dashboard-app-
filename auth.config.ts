@@ -5,7 +5,7 @@ export const authConfig = {
     signIn: '/login',
   },
   callbacks: {
-    authorized({ auth, request: { nextUrl } }) {
+    authorized({ auth, request: { nextUrl } }: NextAuthConfig) {
       const isLoggedIn = !!auth?.user;
       const isOnDashboard = nextUrl.pathname.startsWith('/dashboard');
       if (isOnDashboard) {
@@ -19,4 +19,3 @@ export const authConfig = {
   },
   providers: [], // Add providers with an empty array for now
 } 
-// satisfies NextAuthConfig;
